@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vw-omega.vercel.app/sitemap.xml
