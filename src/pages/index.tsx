@@ -202,7 +202,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
     <main
       className={`w-full bg-gray-200 dark:bg-gray-900 ${reading.className}`}
     >
-      <section className="flex w-full flex-col gap-3">
+      <section className="lg:hidden flex w-full flex-col gap-3">
         <div
           className="flex flex-col gap-6 py-16 px-12"
           style={{
@@ -263,14 +263,79 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
         </div>
       </section>
 
+      {/* Desktop Section */}
+      <section className="max-[1023px]:hidden flex w-full flex-row-reverse gap-16 px-28 pb-28 pt-36">
+        <div
+          className="flex flex-col gap-6"
+          style={{
+            backgroundImage: `linear-gradient(to right, ${
+              theme === "dark"
+                ? "rgba(0, 0, 0, 0.5)"
+                : "rgba(255, 255, 255, 0.4)"
+            }, ${
+              theme === "dark"
+                ? "rgba(0, 0, 0, 0.5)"
+                : "rgba(255, 255, 255, 0.4)"
+            }), url(${Hero.src})`,
+            // backgroundImage: `url(${Hero.src})`,
+            backgroundSize: "cover",
+            width: "300%",
+          }}
+        >
+        </div>
+
+        <div className="flex flex-col items-start gap-3">
+          <p className="text-base text-gray-50 dark:text-gray-300">
+            ⚡ Nosso trabalho traz luz aos seus projetos.
+          </p>
+
+          <h1
+            className={`text-3xl text-gray-50 dark:text-gray-300 md:text-4xl ${style.className}`}
+          >
+            Soluções De{" "}
+            <span className="text-accent-base">Serviços Elétricos</span> Para
+            Sua Residência Ou Comércio
+          </h1>
+          <p className="text-start text-base font-normal text-gray-50 dark:text-gray-300">
+            VWΩ é uma empresa que se compromete a iluminar seus projetos,
+            valorizando cada detalhe de sua construção. Fazemos instalações
+            elétricas prediais, residenciais, empresariais e industriais,
+            pensado na maneira mais viável e sustentável de executar o seu
+            projeto. Somos uma empresa especializada e capacitada para
+            desempenhar o seu serviço com segurança e profissionalismo.
+          </p>
+
+          <a
+            href="www.google.com"
+            className="flex items-center justify-center  gap-1 rounded bg-secondary-base py-2 px-3 text-gray-300"
+          >
+            <svg
+              width="37"
+              height="36"
+              viewBox="0 0 37 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M28.7403 20.8988L23.2403 18.1488C23.0238 18.0409 22.7827 17.992 22.5413 18.0071C22.2999 18.0222 22.0667 18.1007 21.8653 18.2347L19.3405 19.9191C18.1814 19.2819 17.2276 18.3281 16.5905 17.1691L18.2748 14.6442C18.4088 14.4429 18.4873 14.2097 18.5024 13.9683C18.5175 13.7269 18.4687 13.4857 18.3608 13.2692L15.6108 7.76924C15.4968 7.53905 15.3206 7.34539 15.1022 7.21021C14.8838 7.07503 14.6319 7.00373 14.375 7.0044C12.5516 7.0044 10.8029 7.72872 9.51364 9.01804C8.22432 10.3073 7.5 12.056 7.5 13.8794C7.50454 17.8894 9.09953 21.7339 11.935 24.5694C14.7705 27.4049 18.615 28.9998 22.625 29.0044C23.5278 29.0044 24.4218 28.8266 25.2559 28.4811C26.0901 28.1356 26.848 27.6292 27.4864 26.9908C28.1248 26.3524 28.6312 25.5945 28.9767 24.7603C29.3222 23.9262 29.5 23.0322 29.5 22.1294C29.5002 21.8739 29.4292 21.6235 29.295 21.4061C29.1608 21.1888 28.9688 21.0131 28.7403 20.8988ZM22.625 26.2544C19.3441 26.2508 16.1985 24.9458 13.8786 22.6258C11.5586 20.3058 10.2536 17.1603 10.25 13.8794C10.2497 12.9257 10.5799 12.0014 11.1844 11.2637C11.7889 10.526 12.6303 10.0206 13.5655 9.83346L15.5386 13.7866L13.8594 16.2856C13.7339 16.4739 13.6568 16.6902 13.6349 16.9153C13.613 17.1405 13.647 17.3676 13.7339 17.5764C14.7177 19.9146 16.5778 21.7747 18.9159 22.7585C19.1254 22.8492 19.3542 22.8863 19.5817 22.8665C19.8091 22.8467 20.0281 22.7706 20.2187 22.645L22.7298 20.971L26.683 22.9441C26.4943 23.8803 25.9867 24.7221 25.2467 25.3258C24.5066 25.9295 23.58 26.2577 22.625 26.2544ZM18.5 0.129395C15.4139 0.128722 12.3802 0.927046 9.69424 2.44666C7.00824 3.96628 4.76142 6.15542 3.17248 8.801C1.58354 11.4466 0.706604 14.4585 0.627037 17.5435C0.54747 20.6286 1.26798 23.6817 2.71843 26.4056L0.767652 32.258C0.606063 32.7425 0.582612 33.2625 0.699929 33.7596C0.817246 34.2567 1.07069 34.7114 1.43186 35.0725C1.79304 35.4337 2.24766 35.6871 2.74478 35.8045C3.24189 35.9218 3.76186 35.8983 4.2464 35.7367L10.0987 33.786C12.496 35.061 15.1522 35.7732 17.8658 35.8684C20.5794 35.9636 23.279 35.4394 25.7598 34.3355C28.2405 33.2316 30.4372 31.5771 32.183 29.4975C33.9288 27.4179 35.1779 24.9679 35.8355 22.3335C36.4931 19.699 36.5419 16.9494 35.9782 14.2933C35.4145 11.6372 34.2531 9.14447 32.5821 7.00425C30.9112 4.86403 28.7746 3.1326 26.3346 1.94139C23.8946 0.750187 21.2153 0.130509 18.5 0.129395ZM18.5 33.1294C15.8411 33.1312 13.2288 32.431 10.9272 31.0996C10.7587 31.0018 10.5713 30.941 10.3775 30.9212C10.1837 30.9013 9.98795 30.9229 9.80312 30.9844L3.375 33.1294L5.51828 26.7013C5.58006 26.5166 5.60189 26.3208 5.58234 26.127C5.56278 25.9333 5.50228 25.7458 5.40484 25.5772C3.7376 22.6947 3.06821 19.3426 3.50051 16.0408C3.93281 12.7391 5.44264 9.67227 7.79577 7.31616C10.1489 4.96006 13.2138 3.44636 16.515 3.00989C19.8162 2.57342 23.1692 3.23857 26.0538 4.90216C28.9384 6.56576 31.1934 9.1348 32.4689 12.2107C33.7444 15.2867 33.9692 18.6976 33.1084 21.9144C32.2476 25.1311 30.3493 27.9739 27.7079 30.0016C25.0666 32.0294 21.8299 33.1288 18.5 33.1294Z"
+                fill="currentColor"
+              />
+            </svg>
+            Fazer Orçamento Agora
+          </a>
+        </div>
+      </section>
+
+
+
       <section className="flex flex-col gap-12 py-6 px-12" id="Benefícios">
         <div className="flex flex-col items-center gap-2">
           <h2
-            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl`}
+            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl lg:text-5xl`}
           >
             Serviços Oferecidos
           </h2>
-          <p className="text-center text-base text-gray-50 dark:text-gray-300">
+          <p className="text-center text-base text-gray-50 dark:text-gray-300 lg:text-xl">
             Oferecemos serviços em São Paulo e interior.
           </p>
         </div>
@@ -289,12 +354,12 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
               <section className="flex flex-col gap-3">
                 <header className="flex flex-col items-center text-gray-50 dark:text-gray-300">
                   {icon}
-                  <h3 className="text-center text-2xl text-gray-50 dark:text-gray-300">
+                  <h3 className="text-center text-2xl text-gray-50 dark:text-gray-300 lg:text-4xl">
                     {title}
                   </h3>
                 </header>
 
-                <p className="text-center text-base text-gray-50 dark:text-gray-300">
+                <p className="text-center text-base text-gray-50 dark:text-gray-300 lg:text-xl">
                   {description}
                 </p>
               </section>
@@ -306,7 +371,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
       <section className="flex flex-col gap-12 px-12 py-6" id="Realizados">
         <div className="flex flex-col items-center gap-2">
           <h2
-            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl`}
+            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl lg:text-5xl`}
           >
             Serviços Realizados
           </h2>
@@ -314,13 +379,13 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
 
         <ul className="flex w-full flex-col gap-12">
           {projects.map(({ title, description, images }) => (
-            <li key={title} className="w-full">
+            <li key={title} className="w-full ">
               <section className="flex flex-col gap-3">
                 <header className="flex flex-col items-center gap-2">
-                  <h3 className="text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl">
+                  <h3 className={`${style.className} text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl lg:text-4xl`}>
                     {title}
                   </h3>
-                  <p className="text-center text-base text-gray-50 dark:text-gray-300">
+                  <p className="text-center text-base text-gray-50 dark:text-gray-300 lg:text-xl">
                     {description}
                   </p>
                 </header>
@@ -341,27 +406,27 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
 
         <TestimonialCarousel testimonials={testimonials} />
 
-        <div className="flex flex-col gap-6 md:flex-row">
-          <div className="w-full flex-col gap-4 p-8">
+        <div className="flex flex-col gap-6 md:flex-row max-w-[1024px] m-auto">
+          <div className="w-full flex flex-col gap-4 p-8 lg:gap-6">
             <p
               className={`text-6xl text-gray-50 dark:text-gray-300 ${style.className}`}
             >
               80+
             </p>
 
-            <h3 className="text-base text-gray-50 dark:text-gray-300">
+            <h3 className="text-base text-gray-50 dark:text-gray-300 lg:text-xl">
               Clientes atendidos em toda São Paulo.
             </h3>
           </div>
 
-          <div className="w-full flex-col gap-4 p-8">
+          <div className="w-full flex flex-col gap-4 lg:gap-6 p-8">
             <p
               className={`text-6xl text-gray-50 dark:text-gray-300 ${style.className}`}
             >
               150+
             </p>
 
-            <h3 className="text-base text-gray-50 dark:text-gray-300">
+            <h3 className="text-base text-gray-50 dark:text-gray-300 lg:text-xl">
               Serviços diferentes feitos para nossos clientes.
             </h3>
           </div>
@@ -369,14 +434,14 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
       </section>
 
       <section className="flex flex-col gap-12 px-12 py-6" id="Quem Somos">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 lg:gap-4">
           <h2
-            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl`}
+            className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-4xl lg:text-5xl`}
           >
             Quem Somos
           </h2>
 
-          <p className="text-center text-base text-gray-50 dark:text-gray-300">
+          <p className="text-center text-base text-gray-50 dark:text-gray-300 lg:text-xl">
             Conheça melhor os profissionais envolvidos na VWΩ Soluções e todas
             certificações reputáveis de nosso engenheiro elétrico!
           </p>
@@ -409,9 +474,9 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           ))}
         </ul>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 lg:gap-6">
           <h3
-            className={`text-2xl text-gray-50 dark:text-gray-300 md:text-3xl ${style.className} text-center`}
+            className={`text-2xl text-gray-50 dark:text-gray-300 md:text-3xl lg:text-4xl ${style.className} text-center`}
           >
             Licenças E Certificados
           </h3>
@@ -419,9 +484,9 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           <CertificationsCarousel certifications={certifications} />
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 lg:gap-6">
           <h3
-            className={`text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl ${style.className}`}
+            className={`text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl lg:text-4xl ${style.className}`}
           >
             Experiência
           </h3>
@@ -434,7 +499,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
         <div className="flex flex-col gap-6 md:items-center">
           <h2
             className={`${style.className} text-center text-3xl text-gray-50 dark:text-gray-300 md:text-left md:text-4xl`}
-          >
+            >
             Venha Também Fechar Negócio Com A{" "}
             <span className="text-accent-base">VWΩ</span>
           </h2>
@@ -442,30 +507,32 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           <a
             href="www.google.com"
             className="flex items-center justify-center gap-1 rounded bg-secondary-base py-2 px-3 text-gray-300 md:w-max"
-          >
+            >
             <svg
               width="37"
               height="36"
               viewBox="0 0 37 36"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-            >
+              >
               <path
                 d="M28.7403 20.8988L23.2403 18.1488C23.0238 18.0409 22.7827 17.992 22.5413 18.0071C22.2999 18.0222 22.0667 18.1007 21.8653 18.2347L19.3405 19.9191C18.1814 19.2819 17.2276 18.3281 16.5905 17.1691L18.2748 14.6442C18.4088 14.4429 18.4873 14.2097 18.5024 13.9683C18.5175 13.7269 18.4687 13.4857 18.3608 13.2692L15.6108 7.76924C15.4968 7.53905 15.3206 7.34539 15.1022 7.21021C14.8838 7.07503 14.6319 7.00373 14.375 7.0044C12.5516 7.0044 10.8029 7.72872 9.51364 9.01804C8.22432 10.3073 7.5 12.056 7.5 13.8794C7.50454 17.8894 9.09953 21.7339 11.935 24.5694C14.7705 27.4049 18.615 28.9998 22.625 29.0044C23.5278 29.0044 24.4218 28.8266 25.2559 28.4811C26.0901 28.1356 26.848 27.6292 27.4864 26.9908C28.1248 26.3524 28.6312 25.5945 28.9767 24.7603C29.3222 23.9262 29.5 23.0322 29.5 22.1294C29.5002 21.8739 29.4292 21.6235 29.295 21.4061C29.1608 21.1888 28.9688 21.0131 28.7403 20.8988ZM22.625 26.2544C19.3441 26.2508 16.1985 24.9458 13.8786 22.6258C11.5586 20.3058 10.2536 17.1603 10.25 13.8794C10.2497 12.9257 10.5799 12.0014 11.1844 11.2637C11.7889 10.526 12.6303 10.0206 13.5655 9.83346L15.5386 13.7866L13.8594 16.2856C13.7339 16.4739 13.6568 16.6902 13.6349 16.9153C13.613 17.1405 13.647 17.3676 13.7339 17.5764C14.7177 19.9146 16.5778 21.7747 18.9159 22.7585C19.1254 22.8492 19.3542 22.8863 19.5817 22.8665C19.8091 22.8467 20.0281 22.7706 20.2187 22.645L22.7298 20.971L26.683 22.9441C26.4943 23.8803 25.9867 24.7221 25.2467 25.3258C24.5066 25.9295 23.58 26.2577 22.625 26.2544ZM18.5 0.129395C15.4139 0.128722 12.3802 0.927046 9.69424 2.44666C7.00824 3.96628 4.76142 6.15542 3.17248 8.801C1.58354 11.4466 0.706604 14.4585 0.627037 17.5435C0.54747 20.6286 1.26798 23.6817 2.71843 26.4056L0.767652 32.258C0.606063 32.7425 0.582612 33.2625 0.699929 33.7596C0.817246 34.2567 1.07069 34.7114 1.43186 35.0725C1.79304 35.4337 2.24766 35.6871 2.74478 35.8045C3.24189 35.9218 3.76186 35.8983 4.2464 35.7367L10.0987 33.786C12.496 35.061 15.1522 35.7732 17.8658 35.8684C20.5794 35.9636 23.279 35.4394 25.7598 34.3355C28.2405 33.2316 30.4372 31.5771 32.183 29.4975C33.9288 27.4179 35.1779 24.9679 35.8355 22.3335C36.4931 19.699 36.5419 16.9494 35.9782 14.2933C35.4145 11.6372 34.2531 9.14447 32.5821 7.00425C30.9112 4.86403 28.7746 3.1326 26.3346 1.94139C23.8946 0.750187 21.2153 0.130509 18.5 0.129395ZM18.5 33.1294C15.8411 33.1312 13.2288 32.431 10.9272 31.0996C10.7587 31.0018 10.5713 30.941 10.3775 30.9212C10.1837 30.9013 9.98795 30.9229 9.80312 30.9844L3.375 33.1294L5.51828 26.7013C5.58006 26.5166 5.60189 26.3208 5.58234 26.127C5.56278 25.9333 5.50228 25.7458 5.40484 25.5772C3.7376 22.6947 3.06821 19.3426 3.50051 16.0408C3.93281 12.7391 5.44264 9.67227 7.79577 7.31616C10.1489 4.96006 13.2138 3.44636 16.515 3.00989C19.8162 2.57342 23.1692 3.23857 26.0538 4.90216C28.9384 6.56576 31.1934 9.1348 32.4689 12.2107C33.7444 15.2867 33.9692 18.6976 33.1084 21.9144C32.2476 25.1311 30.3493 27.9739 27.7079 30.0016C25.0666 32.0294 21.8299 33.1288 18.5 33.1294Z"
                 fill="currentColor"
-              />
+                />
             </svg>
             Fazer Orçamento Agora
           </a>
         </div>
 
+        <div>
         <Image
           src="/work.png"
           alt="Jefferson trabalhando"
           width={285}
           height={448}
-          className="w-full"
+          className="w-auto lg:max-w-[1024px] m-auto"
         />
+        </div>
       </section>
     </main>
   );

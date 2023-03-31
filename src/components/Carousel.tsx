@@ -32,7 +32,7 @@ export const ImageCarousel: FunctionComponent<{ images: string[] }> = ({
       className="mySwiper"
     >
       {images.map((image) => (
-        <SwiperSlide key={image} className="!h-[285px] bg-transparent">
+        <SwiperSlide key={image} className="lg:!h-[450px] !h-[285px] bg-transparent">
           <Image
             width={285}
             height={285}
@@ -66,7 +66,7 @@ export const TestimonialCarousel: FunctionComponent<{
       {testimonials.map(({ name, description }) => (
         <SwiperSlide key={name} className="!w-[100%] bg-transparent">
           <div
-            className="flex w-full flex-col items-center gap-4 rounded-lg bg-gray-400 p-6 dark:bg-gray-700 md:flex-row md:items-start"
+            className="flex w-full flex-col items-center gap-4 rounded-lg bg-gray-400 p-6 lg:px-6 lg:py-9 dark:bg-gray-700 md:flex-row md:items-start"
             key={name}
           >
             <div className="w-max rounded-full bg-gray-200 p-3 dark:bg-gray-900">
@@ -86,12 +86,12 @@ export const TestimonialCarousel: FunctionComponent<{
 
             <section className="flex flex-col gap-2 md:items-start">
               <h3
-                className={`text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl ${style.className}`}
+                className={`text-center text-2xl text-gray-50 dark:text-gray-300 md:text-3xl lg:text-4xl ${style.className}`}
               >
                 {name}
               </h3>
 
-              <p className="font-normal text-gray-50 dark:text-gray-300">
+              <p className="font-normal text-gray-50 dark:text-gray-300 lg:text-xl">
                 {description}
               </p>
             </section>
@@ -133,9 +133,9 @@ export const CertificationsCarousel: FunctionComponent<{
       {certifications.map((name) => (
         <SwiperSlide key={name} className="bg-transparent">
           <a
-            href="https://www.linkedin.com/in/engenheiroeletrico-jeferson/details/certifications/?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAA9E1pgBQZWGzz_geHo4uQN9IyuiTN2x6Nc"
+            href="https://www.linkedin.com/in/engenheiroeletrico-jeferson/details/certifications/"
             target="_blank"
-            className="flex items-center gap-2"
+            className="flex items-center justify-center gap-2"
             key={name}
           >
             <Image
@@ -146,7 +146,7 @@ export const CertificationsCarousel: FunctionComponent<{
               className="shrink-0"
             />
 
-            <h4 className={`text-left text-base dark:text-gray-300`}>{name}</h4>
+            <h4 className={`text-left text-base dark:text-gray-300 lg:text-xl`}>{name}</h4>
           </a>
         </SwiperSlide>
       ))}
@@ -185,7 +185,7 @@ export const ExperiencesCarousel: FunctionComponent<{
       {experiences.map(({ name, description }) => (
         <SwiperSlide key={name} className="bg-transparent">
           <a
-            href="https://www.linkedin.com/in/engenheiroeletrico-jeferson/details/experience/?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAA9E1pgBQZWGzz_geHo4uQN9IyuiTN2x6Nc"
+            href="https://www.linkedin.com/in/engenheiroeletrico-jeferson/details/experience/"
             target="_blank"
             className="flex flex-col gap-2"
             key={name}
@@ -196,7 +196,7 @@ export const ExperiencesCarousel: FunctionComponent<{
               {name}
             </h4>
 
-            <p className="text-base text-gray-50 dark:text-gray-300">
+            <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl">
               {description}
             </p>
           </a>

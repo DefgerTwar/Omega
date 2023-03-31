@@ -20,9 +20,10 @@ body,
 }
 
 .swiper-wrapper {
-  width: 285px !important;
+  max-width: 285px !important;
 
-  @apply md:!w-[668px];
+  @apply md:!max-w-[668px];
+  @apply lg:!max-w-[910px];
 }
 
 .swiper-pagination {

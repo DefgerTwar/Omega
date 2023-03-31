@@ -14,8 +14,8 @@ export const Header = ({
   const [menu, setMenu] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-3 py-[18px] dark:border-b-2 dark:border-b-accent-base dark:bg-gray-800 md:px-10">
-      <div className="relative hidden md:flex">
+    <header className="fixed w-full z-30 flex items-center justify-between px-3 py-[18px] dark:border-b-2 dark:border-b-accent-base dark:bg-gray-800 md:px-10">
+      <div className="relative hidden md:flex lg:hidden">
         <button
           onClick={() => setMenu((state) => !state)}
           className="text-gray-50 dark:text-gray-300 dark:hover:brightness-75"
@@ -35,24 +35,56 @@ export const Header = ({
         </button>
 
         {menu && (
-          <ul className="absolute flex flex-col rounded-md p-3 dark:border-2 dark:border-accent-base dark:bg-gray-800">
+          <ul className="absolute flex items-start flex-row rounded-md p-6 gap-4 dark:border-2 dark:border-accent-base dark:bg-gray-800">
+
+
+          <div className="flex flex-col">
             {navigation.map(({ name, darkModeIcon, lightModeIcon }) => (
               <li key={name}>
-                <a href={`#${name}`}>
+                <a className="flex flex-row gap-2" href={`#${name}`}>
                   {theme === "dark" ? darkModeIcon : lightModeIcon}
+                <p className="text-gray-50 dark:text-gray-300 md:text-xl" >{name}</p>
                 </a>
               </li>
+
             ))}
+          </div>
+
+          <button
+            onClick={() => setMenu((state) => !state)}
+            className="text-gray-50 dark:text-gray-300 dark:hover:brightness-75"
+          >
+            <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M35.3476 33.4186C35.4754 33.5463 35.5767 33.698 35.6458 33.8649C35.715 34.0318 35.7506 34.2107 35.7506 34.3914C35.7506 34.5721 35.715 34.751 35.6458 34.9179C35.5767 35.0848 35.4754 35.2365 35.3476 35.3642C35.2199 35.492 35.0682 35.5933 34.9013 35.6624C34.7344 35.7316 34.5555 35.7672 34.3748 35.7672C34.1941 35.7672 34.0152 35.7316 33.8483 35.6624C33.6814 35.5933 33.5297 35.492 33.402 35.3642L21.9998 23.9603L10.5976 35.3642C10.3396 35.6222 9.98966 35.7672 9.62479 35.7672C9.25991 35.7672 8.90998 35.6222 8.65198 35.3642C8.39397 35.1062 8.24902 34.7563 8.24902 34.3914C8.24902 34.0265 8.39397 33.6766 8.65198 33.4186L20.0559 22.0164L8.65198 10.6142C8.39397 10.3562 8.24902 10.0063 8.24902 9.64139C8.24902 9.27651 8.39397 8.92658 8.65198 8.66858C8.90998 8.41057 9.25991 8.26563 9.62479 8.26562C9.98966 8.26562 10.3396 8.41057 10.5976 8.66858L21.9998 20.0725L33.402 8.66858C33.66 8.41057 34.0099 8.26562 34.3748 8.26562C34.7397 8.26563 35.0896 8.41057 35.3476 8.66858C35.6056 8.92658 35.7506 9.27651 35.7506 9.64139C35.7506 10.0063 35.6056 10.3562 35.3476 10.6142L23.9437 22.0164L35.3476 33.4186Z" 
+              fill="currentColor"/>
+            </svg>
+          </button>
+
           </ul>
         )}
       </div>
 
       <Link href="/">
-        <Image src="/logo.png" width={140} height={40} alt="Logo" />
+        <Image src="/logo.png" width={120} height={40} alt="Logo" />
       </Link>
 
-      <div className="flex gap-1">
-        <a className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
+      <div className="flex items-center gap-4">
+            <ul className="max-[1023px]:hidden flex items-start flex-row gap-4 dark:bg-gray-800">
+            {navigation.map(({ name, darkModeIcon, lightModeIcon }) => (
+              <li key={name}>
+                <a className="flex items-center flex-row gap-2" href={`#${name}`}>
+                  {theme === "dark" ? darkModeIcon : lightModeIcon}
+                <p className="text-gray-50 dark:text-gray-300 md:text-xl" >{name}</p>
+                </a>
+              </li>
+
+            ))}
+          </ul>
+
+
+      <div className="flex gap-1 h-full">
+        <a href="https://www.instagram.com/vwo_instalacoes/" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
           <Image
             src="/instagram.png"
             width={44}
@@ -61,7 +93,7 @@ export const Header = ({
           />
         </a>
 
-        <a className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
+        <a href="" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
           <Image
             src="/whatsapp.png"
             width={44}
@@ -71,6 +103,8 @@ export const Header = ({
         </a>
 
         <ThemeSwitcher theme={theme} setTheme={setTheme} />
+
+      </div>
       </div>
     </header>
   );
