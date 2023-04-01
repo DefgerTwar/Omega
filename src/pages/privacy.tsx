@@ -32,7 +32,7 @@ export default function Privacy({ theme }: { theme: "dark" | "light" }) {
         <h1 className={`${style.className} text-center text-3xl md:text-4xl lg:text-5xl`}>Política De Cookies</h1>
         <div className="flex flex-col gap-2">
           <h2 className={`${style.className} text-xl md:text-2xl lg:text-3xl`}>O Que São Cookies</h2>
-          <p className="text-sm lg:text-xl">Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies. Também compartilharemos como você pode impedir que esses cookies sejam armazenados, no entanto, isso pode fazer o downgrade ou 'quebrar' certos elementos da funcionalidade do site.</p>
+          <p className="text-sm lg:text-xl">Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies. Também compartilharemos como você pode impedir que esses cookies sejam armazenados, no entanto, isso pode fazer o downgrade ou &quot;quebrar&quot; certos elementos da funcionalidade do site.</p>
         </div>
         <div className="flex flex-col gap-2">
           <h2 className={`${style.className} text-xl md:text-2xl lg:text-3xl`}>Como Usamos Os Cookies?</h2>
