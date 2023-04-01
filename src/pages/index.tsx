@@ -243,7 +243,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           </p>
 
           <a
-            href="www.google.com"
+            href="https://wa.me/5511955562955"
             className="flex items-center justify-center  gap-1 rounded bg-secondary-base py-2 px-3 text-gray-300"
           >
             <svg
@@ -306,7 +306,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           </p>
 
           <a
-            href="www.google.com"
+            href="https://wa.me/5511955562955"
             className="flex items-center justify-center  gap-1 rounded bg-secondary-base py-2 px-3 text-gray-300"
           >
             <svg
@@ -505,7 +505,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           </h2>
 
           <a
-            href="www.google.com"
+            href="https://wa.me/5511955562955"
             className="flex items-center justify-center gap-1 rounded bg-secondary-base py-2 px-3 text-gray-300 md:w-max"
             >
             <svg
