@@ -33,7 +33,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2 group-hover:border-yellow-300">
             E-Mail
           </p>
         </a>
@@ -52,7 +52,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2 group-hover:border-yellow-300">
            Celular 
           </p>
         </a>
@@ -71,7 +71,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2 group-hover:border-yellow-300">
             Linkedin
           </p>
         </a>

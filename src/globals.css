@@ -33,3 +33,7 @@ body,
 .swiper-pagination-bullet {
   @apply !h-[20px] !w-[20px] !bg-slate-400;
 }
+
+.border-accent {
+  border: 2px solid #FFC34C;
+}

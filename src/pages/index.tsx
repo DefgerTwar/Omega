@@ -202,7 +202,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
     <main
       className={`w-full bg-gray-200 dark:bg-gray-900 ${reading.className}`}
     >
-      <section className="lg:hidden flex w-full flex-col gap-3">
+      <section className="lg:hidden flex w-full flex-col gap-3 pt-20">
         <div
           className="flex flex-col gap-6 py-16 px-12"
           style={{

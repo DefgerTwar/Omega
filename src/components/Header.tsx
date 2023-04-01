@@ -35,15 +35,16 @@ export const Header = ({
         </button>
 
         {menu && (
-          <ul className="absolute flex items-start flex-row rounded-md p-6 gap-4 dark:border-2 dark:border-accent-base dark:bg-gray-800">
+          <ul className="absolute flex items-start flex-row rounded-md p-6 gap-4 dark:border-2 dark:border-accent-base bg-gray-100 dark:bg-gray-800">
 
 
           <div className="flex flex-col">
             {navigation.map(({ name, darkModeIcon, lightModeIcon }) => (
               <li key={name}>
-                <a className="flex flex-row gap-2" href={`#${name}`}>
+                <a className="flex flex-row gap-2 group" href={`#${name}`}>
                   {theme === "dark" ? darkModeIcon : lightModeIcon}
-                <p className="text-gray-50 dark:text-gray-300 md:text-xl" >{name}</p>
+                <p className="text-gray-50 dark:text-gray-300 md:text-xl group-hover:border-b-2 group-hover:border-gray-50 dark:group-hover:border-gray-100 dark:group-hover:border-b-2" >{name}</p>
+
                 </a>
               </li>
 
@@ -73,9 +74,9 @@ export const Header = ({
             <ul className="max-[1023px]:hidden flex items-start flex-row gap-4 dark:bg-gray-800">
             {navigation.map(({ name, darkModeIcon, lightModeIcon }) => (
               <li key={name}>
-                <a className="flex items-center flex-row gap-2" href={`#${name}`}>
+                <a className="flex items-center flex-row gap-2 group" href={`#${name}`}>
                   {theme === "dark" ? darkModeIcon : lightModeIcon}
-                <p className="text-gray-50 dark:text-gray-300 md:text-xl" >{name}</p>
+                <p className="text-gray-50 dark:text-gray-300 md:text-xl group-hover:border-b-2 group-hover:border-gray-50 dark:group-hover:border-gray-100 dark:group-hover:border-b-2">{name}</p>
                 </a>
               </li>
 
