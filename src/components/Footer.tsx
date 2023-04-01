@@ -94,7 +94,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
       </section>
 
       <p className="text-center text-gray-50 dark:text-gray-300">
-        © 2023 <a href="https://github.com/AtomicFeasT">Thiago Thalisson</a> E{" "}
+        © 2023 <a href="https://github.com/ThiagoThalisson">Thiago Thalisson</a> E{" "}
         <a href="https://github.com/VitorGouveia">Vitor Gouveia</a>
       </p>
 
