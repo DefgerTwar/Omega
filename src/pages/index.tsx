@@ -202,7 +202,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
     <main
       className={`w-full bg-gray-200 dark:bg-gray-900 ${reading.className}`}
     >
-      <section className="lg:hidden pt-20 flex w-full flex-col gap-3">
+      <section className="lg:hidden flex w-full flex-col gap-3 pt-20">
         <div
           className="flex flex-col gap-6 py-16 px-12"
           style={{
@@ -292,7 +292,12 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
           <h1
             className={`text-3xl text-gray-50 dark:text-gray-300 md:text-4xl ${style.className}`}
           >
-            Soluções De{" "}www.google.comeus projetos,
+            Soluções De{" "}
+            <span className="text-accent-base">Serviços Elétricos</span> Para
+            Sua Residência Ou Comércio
+          </h1>
+          <p className="text-start text-base font-normal text-gray-50 dark:text-gray-300">
+            VWΩ é uma empresa que se compromete a iluminar seus projetos,
             valorizando cada detalhe de sua construção. Fazemos instalações
             elétricas prediais, residenciais, empresariais e industriais,
             pensado na maneira mais viável e sustentável de executar o seu
