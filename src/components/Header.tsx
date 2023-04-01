@@ -14,7 +14,7 @@ export const Header = ({
   const [menu, setMenu] = useState(false);
 
   return (
-    <header className="fixed w-full z-30 flex items-center justify-between px-3 py-[18px] dark:border-b-2 dark:border-b-accent-base dark:bg-gray-800 md:px-10">
+    <header className="fixed w-full z-30 flex items-center justify-between px-3 py-[18px] dark:border-b-2 dark:border-b-accent-base bg-gray-100 dark:bg-gray-800 md:px-10">
       <div className="relative hidden md:flex lg:hidden">
         <button
           onClick={() => setMenu((state) => !state)}
@@ -84,7 +84,7 @@ export const Header = ({
 
 
       <div className="flex gap-1 h-full">
-        <a href="https://www.instagram.com/vwo_instalacoes/" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
+        <a href="https://www.instagram.com/vwo_solucoes/" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
           <Image
             src="/instagram.png"
             width={44}
@@ -93,7 +93,7 @@ export const Header = ({
           />
         </a>
 
-        <a href="" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
+        <a href="https://wa.me/5511955562955" className="flex shrink-0 cursor-pointer p-1 hover:brightness-125">
           <Image
             src="/whatsapp.png"
             width={44}

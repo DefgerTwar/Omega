@@ -11,14 +11,15 @@ const style = Yeseva_One({
 export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
   return (
     <footer className="hidden flex-col items-center justify-center gap-6 rounded-t-2xl border-t-4 border-accent-base bg-gray-200 p-12 dark:rounded-none dark:border-0 dark:bg-gray-800 md:flex">
-      <section className="flex w-full flex-col gap-3">
+      <section className="flex w-full flex-col gap-3 lg:max-w-5xl">
         <h3
-          className={`uppercase ${style.className} text-gray-50 dark:text-gray-300`}
+          className={`uppercase ${style.className} text-center text-gray-50 dark:text-gray-300 lg:text-xl`}
         >
           Contato
         </h3>
+        <div className="flex">
 
-        <div className="flex items-center gap-2">
+        <a href="mailto:jeferson@vwosolucoes.com" className="flex w-full justify-center items-center gap-2 group">
           <svg
             width="42"
             height="33"
@@ -32,12 +33,12 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300">
-            jeferson@vwosolucoes.com
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+            E-Mail
           </p>
-        </div>
+        </a>
 
-        <div className="flex items-center gap-2">
+        <a href="https://wa.me/5511955562955" className="group flex w-full justify-center items-center gap-2">
           <svg
             width="44"
             height="45"
@@ -51,12 +52,12 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300">
-            +55 11 95556-2955
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+           Celular 
           </p>
-        </div>
+        </a>
 
-        <div className="flex items-center gap-2">
+        <a href="https://www.linkedin.com/in/engenheiroeletrico-jeferson/" className="group flex w-full justify-center items-center gap-2">
           <svg
             width="44"
             height="45"
@@ -70,10 +71,12 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </svg>
 
-          <p className="text-base text-gray-50 dark:text-gray-300">
-            https://www.linkedin.com/in/engenheiroeletrico-jeferson/
+          <p className="text-base text-gray-50 dark:text-gray-300 lg:text-xl group-hover:border-b-2">
+            Linkedin
           </p>
+        </a>
         </div>
+
       </section>
 
       <section className="flex flex-col items-center gap-3 p-3">
