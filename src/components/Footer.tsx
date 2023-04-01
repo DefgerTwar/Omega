@@ -137,9 +137,9 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
                 width="35.75"
                 height="36.75"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -188,7 +188,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
                 width="35.75"
                 height="36.75"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
                 <feFlood flood-opacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
