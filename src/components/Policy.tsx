@@ -21,7 +21,7 @@ export const PolicyBanner = ({
   };
 
   return accept ? null : (
-    <div className="fixed bottom-[70px] flex w-full flex-col items-center gap-3 bg-gray-700 p-6 md:bottom-0">
+    <div className="z-40 fixed bottom-[70px] flex w-full flex-col items-center gap-3 bg-gray-700 p-6 md:bottom-0">
       <p className="text-center text-base text-white lg:text-xl">
         Uso de cookies - Guardamos estatísticas de visitas para melhorar sua
         experiência de navegação.
