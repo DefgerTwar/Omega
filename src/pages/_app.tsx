@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Manutenção e Instações elétricas - VW Ômega</title>
+        <title>Manutenção e Instalações elétricas - VW Ômega</title>
         <meta
           name="description"
           content="Instalação e manutenção elétrica residêncial/corporativa em São Paulo. Solicite um orçamento. VW Ômega Elétrica."
