@@ -11,7 +11,7 @@ import { PolicyBanner } from "../components/Policy";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
-  const [accept, setAccept] = useState(false);
+  const [accept, setAccept] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/icon.svg" />
       </Head>
 
-      {accept && (
+      {accept ?(
         <Script id="google-tag-manager-head" strategy="afterInteractive">
           {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,7 +48,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           })(window,document,'script','dataLayer','GTM-N26WCHT');
         `}
         </Script>
-      )}
+      ) : null}
 
       <Header theme={theme} setTheme={setTheme} />
 
@@ -56,7 +56,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       <BottomBar theme={theme} />
 
-      {!loading && <PolicyBanner accept={accept} setAccept={setAccept} />}
+      {!loading && <PolicyBanner />}
 
       <Footer theme={theme} />
     </>

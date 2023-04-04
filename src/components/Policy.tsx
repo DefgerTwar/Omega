@@ -2,13 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 
-export const PolicyBanner = ({
-  accept,
-  setAccept,
-}: {
-  accept: boolean;
-  setAccept: Dispatch<SetStateAction<boolean>>;
-}) => {
+export const PolicyBanner = () => {
+  const [accept, setAccept] = useState(false);
   const router = useRouter();
 
   const loadScripts = () => {
@@ -19,6 +14,19 @@ export const PolicyBanner = ({
 
     setAccept(true);
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const setting = localStorage.getItem("privacySettings");
+
+    if (setting) {
+      // if key exists user has accepted
+      setAccept(true);
+    }
+
+    setLoading(false);
+  }, [])
 
   return accept ? null : (
     <div className="z-40 fixed bottom-[70px] flex w-full flex-col items-center gap-3 bg-gray-700 p-6 md:bottom-0">
