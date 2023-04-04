@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export const PolicyBanner = () => {
   const [accept, setAccept] = useState(false);
@@ -24,12 +24,10 @@ export const PolicyBanner = () => {
       // if key exists user has accepted
       setAccept(true);
     }
-
-    setLoading(false);
-  }, [])
+  }, []);
 
   return accept ? null : (
-    <div className="z-40 fixed bottom-[70px] flex w-full flex-col items-center gap-3 bg-gray-700 p-6 md:bottom-0">
+    <div className="fixed bottom-[70px] z-40 flex w-full flex-col items-center gap-3 bg-gray-700 p-6 md:bottom-0">
       <p className="text-center text-base text-white lg:text-xl">
         Uso de cookies - Guardamos estatísticas de visitas para melhorar sua
         experiência de navegação.
