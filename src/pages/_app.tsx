@@ -56,6 +56,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             strategy="afterInteractive"
           />
 
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=AW-11126108000"
+            strategy="afterInteractive"
+          />
+
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
@@ -63,6 +69,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               gtag('js', new Date());
 
               gtag('config', 'G-88QD0GKD93');
+            `}
+          </Script>
+
+          <Script id="google-ads" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11126108000');
+            `}
+          </Script>
+
+          <Script id="google-ads" strategy="afterInteractive">
+            {`
+              gtag('event', 'conversion', {'send_to': 'AW-11126108000/EbA4CKvFxZYYEODeq7kp'});
             `}
           </Script>
         </>
