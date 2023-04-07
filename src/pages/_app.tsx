@@ -69,18 +69,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               gtag('js', new Date());
 
               gtag('config', 'G-88QD0GKD93');
+              gtag('config', 'AW-11126108000');
             `}
           </Script>
 
           <Script id="google-ads" strategy="afterInteractive">
             {`
-              window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11126108000');
-            `}
-          </Script>
-
-          <Script id="google-ads" strategy="afterInteractive">
-            {`
-              gtag('event', 'conversion', {'send_to': 'AW-11126108000/EbA4CKvFxZYYEODeq7kp'});
+              function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-11126108000/EbA4CKvFxZYYEODeq7kp', 'event_callback': callback }); return false; }
             `}
           </Script>
         </>
