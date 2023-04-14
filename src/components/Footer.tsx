@@ -38,7 +38,7 @@ export const Footer = ({ theme }: { theme: "dark" | "light" }) => {
             </p>
           </a>
 
-          <a href="https://wa.me/5511955562955" className="group flex w-full justify-center items-center gap-2">
+          <a href="https://wa.me/5511973473352" className="group flex w-full justify-center items-center gap-2">
             <svg
               width="44"
               height="45"
