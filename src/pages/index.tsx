@@ -126,14 +126,17 @@ const workers = [
   {
     name: "Jeferson Alves",
     role: "Engenheiro Elétrico",
+    image: "/jeferson.jpg",
     linkedinUrl: "https://www.linkedin.com/in/engenheiroeletrico-jeferson/",
   },
   {
     name: "Gideão Abnadabe",
+    image: "/gideao.jpg",
     role: "Diretor Comercial",
   },
   {
     name: "Guilherme Alves",
+    image: "/guilherme.jpg",
     role: "Diretor Executivo",
   },
 ];
@@ -448,8 +451,8 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
         </div>
 
         <ul className="flex w-full flex-col items-center justify-center gap-12 md:flex-row md:flex-wrap">
-          {workers.map(({ name, role, linkedinUrl }) => (
-            <li className="flex flex-col gap-2 md:w-[330px]" key={name}>
+          {workers.map(({ name, role, image, linkedinUrl }) => (
+            <li className="flex flex-col justify-center items-center gap-2 md:w-[330px]" key={name}>
               {linkedinUrl ? (
                 <a href={linkedinUrl}>
                   <h3
@@ -457,6 +460,7 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
                   >
                     {name}
                   </h3>
+
                 </a>
               ) : (
                 <h3
@@ -465,11 +469,21 @@ export default function Page({ theme }: { theme: "dark" | "light" }) {
                   {name}
                 </h3>
               )}
+
               <p
                 className={`text-center text-xl text-gray-50 dark:text-gray-300 md:text-2xl ${style.className}`}
               >
                 {role}
               </p>
+
+                <div className="flex">
+                  <Image className="rounded-full lg:h-[400px] lg:w-[400px]"
+                  src={image}
+                  alt="Picture of the author"
+                  width={250}
+                  height={250}
+                   />
+                </div>
             </li>
           ))}
         </ul>
