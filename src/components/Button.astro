@@ -1,0 +1,34 @@
+---
+import type { BaseInterface } from "../common/base.interface"
+
+export interface Props extends BaseInterface {
+  link?: string
+}
+
+const { variant, classVariant, content, link, class: className } = Astro.props
+---
+
+<button
+  class:list={[
+    className,
+    `max-w-max text-light-fill flex bg-accent-base text-black hover:!bg-accent-light focus:border-accent-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group`,
+  ]}
+>
+  {
+    variant === "call-to-action" ? (
+      <a
+        class={`px-6 py-3 md:px-8 !text-dark-title ${
+          classVariant?.includes("noFill") ? "text-primary-dark" : ""
+        } group-hover:text-primary-base`}
+        href={link}
+        target="_blank"
+      >
+        {content}
+      </a>
+    ) : (
+      <p class="text-inherit px-6 py-3 md:px-8">
+        <slot />
+      </p>
+    )
+  }
+</button>

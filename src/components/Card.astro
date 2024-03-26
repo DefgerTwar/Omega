@@ -1,0 +1,189 @@
+---
+import type { BaseInterface } from "../common/base.interface"
+
+import Button from "./Button.astro"
+import ImageBlock from "./ImageBlock.astro"
+
+type Props = BaseInterface &
+  (
+    | {
+        variant:
+          | "card-one"
+          | "card-two"
+          | "card-three"
+          | "card-four"
+          | "card-six"
+          | "card-seven"
+
+        imageUrl: ImageMetadata
+        imageAlt: string
+        secondaryContent?: string
+        buttonContent: string
+        buttonPath?: string
+      }
+    | {
+        variant: "card-five"
+      }
+    | {
+        variant: "card-two"
+        secondaryContent: string
+        buttonContent: string
+        buttonPath?: string
+        imageUrl?: ImageMetadata
+        imageAlt?: string
+      }
+  )
+
+const {
+  variant,
+  classVariant,
+  title,
+  content,
+  secondaryContent,
+  statement,
+  imageUrl,
+  imageAlt,
+  buttonContent,
+  buttonPath,
+} = Astro.props
+
+type TextRightType = {
+  classList: {
+    [className: string]: boolean
+  }
+}
+
+const textRight: TextRightType = {
+  classList: {
+    "text-right md:text-left": classVariant?.includes("rightText") ?? false,
+  },
+}
+---
+
+<div
+  class:list={{
+    "w-full": classVariant?.includes("fullWidth"),
+  }}
+  class="flex flex-col md:flex-row"
+>
+  {
+    [
+      variant?.includes("card-one") && (
+        <div
+          class="flex flex-col md:flex-row gap-3 md:gap-8"
+          class:list={{
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
+          />
+          <div class="w-full flex flex-col gap-3">
+            <h2 class="text-inherit">{title}</h2>
+            <p class="text-inherit">{content}</p>
+            <Button
+              variant="call-to-action"
+              link={buttonPath}
+              content={buttonContent}
+              classVariant="filledLgRounded"
+            />
+          </div>
+        </div>
+      ),
+      variant?.includes("card-two") && (
+        <div class="flex flex-col gap-3">
+          <h2 class="text-inherit text-center">{title}</h2>
+          <div class="text-inherit flex flex-col gap-3 md:flex-row">
+            <p>{content}</p>
+            <p>{secondaryContent}</p>
+          </div>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
+          />
+        </div>
+      ),
+      variant?.includes("card-three") && (
+        <div
+          class="flex flex-col md:flex-row gap-4 md:gap-8"
+          class:list={{
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+            "md:flex-row-reverse": classVariant?.includes("sectionReversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4">
+            <p class="!text-accent-base" class:list={textRight.classList}>
+              {statement}
+            </p>
+            <h2 class="text-inherit" class:list={textRight.classList}>
+              {title}
+            </h2>
+            <p class="text-inherit" class:list={textRight.classList}>
+              {content}
+            </p>
+          </div>
+          <ImageBlock
+            imageWidth={400}
+            imageHeight={400}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
+          />
+        </div>
+      ),
+      variant?.includes("card-four") && (
+        <div class="w-full flex flex-col gap-4">
+          <h2 class="text-inherit">{title}</h2>
+          <ImageBlock
+            imageWidth={600}
+            imageHeight={300}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
+          />
+        </div>
+      ),
+      variant?.includes("card-five") && (
+        <div class="flex flex-col gap-4 md:gap-6">
+          <slot />
+        </div>
+      ),
+      variant?.includes("card-six") && (
+        <div class="flex flex-col gap-4 md:gap-6 items-center">
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
+          />
+
+          <h2 class="text-center">{title}</h2>
+          <p class="text-center">{content}</p>
+        </div>
+      ),
+      variant?.includes("card-seven") && (
+        <div class="flex flex-col md:items-center gap-4">
+          <div class="flex md:flex-col gap-4 md:gap-6 items-center">
+            <ImageBlock
+              imageWidth={56}
+              imageHeight={56}
+              imageUrl={imageUrl!}
+              imageAlt={imageAlt!}
+            />
+
+            <h3 class="text-inherit text-center">{title}</h3>
+          </div>
+          <p class="text-inherit md:text-center">{content}</p>
+        </div>
+      ),
+    ]
+  }
+</div>

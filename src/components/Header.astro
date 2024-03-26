@@ -1,0 +1,57 @@
+---
+import Navbar from "./Navbar.astro"
+---
+
+<header
+  class="fixed w-full z-50 flex justify-center p-6 transition-transform duration-100 h-[84px] header-scroll z-10"
+  style="background: hsla(0, 0%, 100%, 0.03);"
+>
+  <div class="flex justify-between w-full max-w-7xl">
+    <a
+      aria-label="Link to home page."
+      href="/"
+      class="w-[92px] h-[36] bg-[url('/logoLight.svg')] dark:bg-[url('/logoDark.svg')] bg-no-repeat bg-center"
+    ></a>
+
+    <Navbar variant="desktop" />
+
+    <div></div>
+  </div>
+</header>
+
+<!-- <header
+  class="fixed w-full flex justify-center bg-slate-50 py-2 transition-transform duration-100 h-[72px] header-scroll z-10"
+>
+  <div class="flex justify-between w-full max-w-screen-lg px-6">
+    <a
+      aria-label="Link to home page."
+      href="./"
+      class="w-[92px] h-[36] bg-[url('/logoLight.svg')] dark:bg-[url('/logoDark.svg')] bg-no-repeat bg-center"
+    ></a>
+    <Navbar variant="desktop" />
+  </div>
+</header> -->
+
+<Navbar variant="mobile" />
+
+<style>
+  .header-hidden {
+    transform: translateY(calc(-1 * 72px));
+  }
+</style>
+
+<script defer>
+  // Auto-Hides Header On Scroll
+  const headerScroll = document.querySelector(".header-scroll")
+  let lastScroll = window.scrollY
+
+  window.addEventListener("scroll", () => {
+    if (lastScroll < window.scrollY) {
+      headerScroll.classList.add("header-hidden")
+    } else {
+      headerScroll.classList.remove("header-hidden")
+    }
+
+    lastScroll = window.scrollY
+  })
+</script>
