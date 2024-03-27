@@ -3,7 +3,7 @@ import Navbar from "./Navbar.astro"
 ---
 
 <header
-  class="fixed w-full z-50 flex justify-center p-6 transition-transform duration-100 h-[84px] header-scroll z-10"
+  class="fixed w-full z-50 flex justify-center p-6 transition-transform duration-100 h-[84px] header-scroll backdrop-blur-lg"
   style="background: hsla(0, 0%, 100%, 0.03);"
 >
   <div class="flex justify-between w-full max-w-7xl">
@@ -36,7 +36,7 @@ import Navbar from "./Navbar.astro"
 
 <style>
   .header-hidden {
-    transform: translateY(calc(-1 * 72px));
+    transform: translateY(-100%);
   }
 </style>
 

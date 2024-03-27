@@ -17,7 +17,7 @@ import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
 ---
 
-<div class="relative">
+<div class="relative overflow-hidden">
   {
     [
       variant?.includes("hero-one") && (
@@ -226,8 +226,8 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("hero-eight") && (
-        <div class="m-auto max-w-7xl h-[800px] w-full flex py-20 gap-20 justify-center items-center">
-          <section class="z-10 flex flex-col gap-12 !w-1/2">
+        <div class="m-auto max-w-7xl px-6 h-[800px] w-full flex flex-col lg:flex-row py-20 gap-20 justify-center items-center">
+          <section class="z-10 flex flex-col gap-12 w-full lg:!w-1/2">
             <slot />
           </section>
 
@@ -261,13 +261,11 @@ import ImageBlock from "./ImageBlock.astro"
             </defs>
           </svg>
 
-          <section class="!w-1/2 h-full">a</section>
+          <section class="hidden lg:block !w-1/2 h-full">a</section>
 
           <img
-            class="absolute z-10 right-0 h-full w-[calc(50%-40px)] object-cover"
-            src={
-              "https://www.vwosolucoes.com/_next/static/media/hero.c9a6d105.png"
-            }
+            class="w-full lg:absolute z-10 right-0 h-full lg:w-[calc(50%-40px)] object-cover"
+            src={hero.imageUrl.src}
             alt={hero.imageAlt}
           />
         </div>
