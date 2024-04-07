@@ -1,0 +1,103 @@
+---
+import Button from "../components/Button.astro"
+---
+
+<div
+    id="cookie-consent-banner"
+    class="cookie-consent-banner fixed bottom-0 right-0 z-50 flex hidden w-full flex-col items-center lg:m-6 lg:w-1/2 lg:rounded-2xl"
+>
+    <div class="rounded-tl-lg rounded-tr-lg bg-slate-800 p-6 w-full flex justify-center">
+	<h3 class="text-dark-title">Are You Okay With Cookies?</h3>
+    </div>
+    <div class="rounded-bl-lg rounded-br-lg text-dark-paragraph bg-slate-900 flex flex-col gap-3 p-6 items-center">
+	<p class="text-center text-dark-paragraph">We use cookies to see where you're from what pages you visit the most. This helps us improve your experience on our site.</p>
+	<div class="flex flex-row flex-wrap gap-4 justify-center">
+	    <label class="text-dark-paragraph flex items-center gap-2"
+	    ><input
+		 id="consent-necessary"
+		 type="checkbox"
+		 value="Necessary"
+		 checked
+		 disabled
+	     />Necessário</label
+			 >
+	    <label class="text-dark-paragraph flex items-center gap-2"
+	    ><input
+		 id="consent-analytics"
+		 type="checkbox"
+		 value="Analytics"
+		 checked
+	     />Analíticos</label
+			 >
+	    <label class="text-dark-paragraph flex items-center gap-2"
+	    ><input
+		 id="consent-marketing"
+		 type="checkbox"
+		 value="Marketing"
+	     />Marketing</label
+			>
+	</div>
+	<div class="flex flex-col gap-4 items-center">
+	    <div class="flex flex-wrap justify-center gap-3">
+		<button id="btn-accept-all" class="px-6 py-3 md:px-8 max-w-max flex items-center bg-primary-base hover:!bg-primary-darkest focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
+		>Accept All</button>
+		<button id="btn-reject-all" class="!bg-transparent border-primary-dark border-2 border-solid px-6 py-3 md:px-8 max-w-max flex items-center bg-primary-base hover:!bg-primary-darkest hover:text-primary-base focus:text-primary-base focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
+		>Reject All</button>    
+	    </div>
+	    <button id="btn-accept-some" class="px-6 py-3 md:px-8 max-w-max flex items-center bg-primary-base hover:!bg-primary-darkest focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
+	    >Accept Selection</button>
+	</div>
+
+    </div>
+</div>
+
+<script defer is:inline>
+ function hideBanner() {
+     document.getElementById("cookie-consent-banner").style.display = "none"
+ }
+
+ if (localStorage.getItem("consentMode") === null) {
+     document
+	 .getElementById("btn-accept-all")
+	 .addEventListener("click", function () {
+             setConsent({
+		 necessary: true,
+		 analytics: true,
+		 marketing: true,
+             })
+             hideBanner()
+	 })
+     document
+	 .getElementById("btn-accept-some")
+	 .addEventListener("click", function () {
+             setConsent({
+		 necessary: true,
+		 analytics: document.querySelector("#consent-analytics").checked,
+		 marketing: document.querySelector("#consent-marketing").checked,
+             })
+             hideBanner()
+	 })
+     document
+	 .getElementById("btn-reject-all")
+	 .addEventListener("click", function () {
+             setConsent({
+		 necessary: false,
+		 analytics: false,
+		 marketing: false,
+             })
+             hideBanner()
+	 })
+     document.getElementById("cookie-consent-banner").style.display = "flex"
+ }
+
+ function setConsent(consent) {
+     const consentMode = {
+	 functionality_storage: consent.necessary ? "granted" : "denied",
+	 security_storage: consent.necessary ? "granted" : "denied",
+	 ad_storage: consent.marketing ? "granted" : "denied",
+	 analytics_storage: consent.analytics ? "granted" : "denied",
+     }
+     gtag("consent", "update", consent)
+     localStorage.setItem("consentMode", JSON.stringify(consentMode))
+ }
+</script>

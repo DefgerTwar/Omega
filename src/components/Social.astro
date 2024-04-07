@@ -1,0 +1,77 @@
+---
+import type { BaseInterface } from "../common/base.interface"
+type Props = BaseInterface & SocialProps
+type SocialProps = {
+    social: BaseInterface
+}
+
+const social = Astro.props.social as any
+
+const { variant, classVariant } = Astro.props
+
+import ImageBlock from "./ImageBlock.astro"
+---
+
+<div>
+  {
+    [
+      variant?.includes("social-one") && (
+        <div class="md:max-w-5xl m-auto w-full flex flex-col md:flex-row gap-6 md:gap-8 px-6 py-6 md:py-8">
+          {Array.isArray(social) &&
+            social.map((props) => (
+              <div
+                class="flex flex-col rounded-2xl p-8 gap-3"
+                class:list={{
+                  "bg-light-foregroundFill":
+                    classVariant?.includes("withBackground"),
+                }}
+              >
+                <h1>{props.title}</h1>
+                <p>{props.content}</p>
+              </div>
+            ))}
+        </div>
+      ),
+      variant?.includes("social-two") && (
+        <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-6 px-6 py-6 md:py-8">
+          {Array.isArray(social) &&
+            social.map((props) => (
+              <div class="w-full bg-light-foregroundFill flex items-start gap-4 p-6 rounded-lg">
+                <ImageBlock
+                  classVariant="lgRounded"
+                  imageWidth={48}
+                  imageHeight={48}
+                  {...props}
+                />
+                <div class="flex flex-col gap-3">
+                  <p>{props.content}</p>
+                  <p class="font-bold">{props.title}</p>
+                  <p>&#11088;&#11088;&#11088;&#11088;&#11088;</p>
+                </div>
+              </div>
+            ))}
+        </div>
+      ),
+      variant?.includes("social-three") && (
+        <div class="md:max-w-5xl m-auto w-full flex flex-col md:flex-row gap-4 md:gap-6 px-6 py-6 md:py-8">
+          {Array.isArray(social) &&
+            social.map((props) => (
+              <div class="w-full bg-light-foregroundFill flex flex-col items-center gap-4 p-6 rounded-lg outline outline-primary-light outline-1">
+                <ImageBlock
+                  classVariant="lgRounded"
+                  imageWidth={48}
+                  imageHeight={48}
+                  {...props}
+                />
+                <div class="flex flex-col gap-2">
+                  <p class="font-bold">{props.title}</p>
+                  <p>{props.content}</p>
+                  <p>&#11088;&#11088;&#11088;&#11088;&#11088;</p>
+                </div>
+              </div>
+            ))}
+        </div>
+      ),
+    ]
+  }
+</div>
