@@ -20,16 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-<<<<<<< HEAD
 # jetbrains setting folder
 .idea/
-=======
-# yarn stuff
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
->>>>>>> 6ac897a1feaaab82150cd3fcd8b62f0a619f84d4
