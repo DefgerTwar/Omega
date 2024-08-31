@@ -1,13 +1,31 @@
 ---
+<<<<<<< HEAD
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+=======
+import "/src/global.css"
+
+import type { BaseInterface } from "../common/base.interface"
+export interface Props extends BaseInterface {
+  description: string
+}
+const { title, description } = Astro.props
+
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Consent from "../components/Consent.astro"
+import SEO from "./SEO.astro"
+
+import { ViewTransitions } from "astro:transitions"
+>>>>>>> 6ac897a1feaaab82150cd3fcd8b62f0a619f84d4
 ---
 
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -48,3 +66,70 @@ const { title } = Astro.props;
 			monospace;
 	}
 </style>
+=======
+  <head>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      window.gtag = gtag
+
+      if (localStorage.getItem("consentMode") === null) {
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          security_storage: "denied",
+        })
+      } else {
+        gtag(
+          "consent",
+          "default",
+          JSON.parse(localStorage.getItem("consentMode")),
+        )
+      }
+    </script>
+    <script>
+      /* ;(function (w, d, s, l, i) {
+            w[l] = w[l] || []
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
+            var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : ""
+            j.async = true
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
+            f.parentNode.insertBefore(j, f)
+	    })(window, document, "script", "dataLayer", "GTM-0000000") */
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <SEO
+      globalTitle="Landing Page and Institucional Site template."
+      globalDescription="A dynamic Astro SSG template to help freelancers around the world."
+      site="https://lpis-template.vercel.app/"
+    />
+
+    <ViewTransitions />
+  </head>
+  <body class="bg-light-fill">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-0000000"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <Header />
+    <slot />
+    <Footer />
+    <Consent />
+  </body>
+</html>
+>>>>>>> 6ac897a1feaaab82150cd3fcd8b62f0a619f84d4

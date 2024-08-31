@@ -1,0 +1,275 @@
+---
+import type { ImageTypes } from "../common/image.type"
+import type { BaseInterface } from "../common/base.interface"
+
+import Card from "./Card.astro"
+
+type Props = BaseInterface & HeroTypes
+type HeroTypes = {
+  hero: ImageTypes
+  secondaryTitle?: string
+}
+
+const { variant, classVariant } = Astro.props
+const hero = Astro.props.hero as any
+
+import Button from "./Button.astro"
+import ImageBlock from "./ImageBlock.astro"
+---
+
+<div class="relative overflow-hidden">
+  {
+    [
+      variant?.includes("hero-one") && (
+        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8">
+          <ImageBlock
+            classVariant="spanAbsolute fullWidth lowBrightness"
+            imageWidth={900}
+            imageHeight={600}
+            {...hero}
+          />
+          <div class="flex flex-col gap-4 md:gap-3">
+            <div class="flex flex-col gap-2">
+              <p class="font-bold text-accent-light text-center">
+                {hero.statement}
+              </p>
+              <h1 class="text-dark-title text-center">{hero.title}</h1>
+            </div>
+            <p class="text-dark-paragraph text-center">{hero.content}</p>
+          </div>
+          <Button
+            variant="call-to-action"
+            link={hero.buttonPath}
+            content={hero.buttonContent}
+            classVariant="filledLgRounded"
+          />
+        </div>
+      ),
+      variant?.includes("hero-two") && (
+        <div
+          class="flex items-center gap-4 md:gap-8 px-6 md:py-16 md:max-w-5xl m-auto"
+          class:list={{
+            "flex-col md:flex-row": classVariant?.includes("default"),
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4 md:gap-6 py-6">
+            <div class="flex flex-col gap-2">
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
+            </div>
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
+            />
+          </div>
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={500}
+            imageHeight={500}
+            {...hero}
+          />
+        </div>
+      ),
+      variant?.includes("hero-three") && (
+        <div
+          class="flex flex-col md:flex-row items-center gap-4 md:gap-8"
+          class:list={{
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4 md:gap-8 px-6 md:px-10 lg:px-16 py-8">
+            <div class="flex flex-col gap-2 ">
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
+            </div>
+
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
+            />
+          </div>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={960}
+            imageHeight={540}
+            {...hero}
+          />
+        </div>
+      ),
+      variant?.includes("hero-four") && (
+        <div class="md:max-w-5xl m-auto flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
+          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+            <div class="flex flex-col items-center gap-2">
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1 class="text-center">{hero.title}</h1>
+              <p class="text-center">{hero.content}</p>
+            </div>
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
+            />
+          </div>
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={600}
+            imageHeight={200}
+            {...hero}
+          />
+        </div>
+      ),
+      variant?.includes("hero-five") && (
+        <div class="md:max-w-5xl m-auto flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16">
+          <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[1]}
+            />
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[1]}
+            />
+          </div>
+          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+            <div class="flex flex-col gap-3">
+              <p class="font-bold !text-accent-base text-center">
+                {hero.statement[0]}
+              </p>
+              <h1 class="text-center">{hero.title[0]}</h1>
+              <p class="text-center">{hero.content[0]}</p>
+            </div>
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              link={hero.buttonPath[0]}
+              content={hero.buttonContent[0]}
+            />
+          </div>
+          <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[2]}
+            />
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[2]}
+            />
+          </div>
+        </div>
+      ),
+      variant?.includes("hero-six") && (
+        <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+          <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
+            <h1>{hero.title}</h1>
+            <div class="flex flex-col gap-3">
+              <p>{hero.content}</p>
+              <Button
+                classVariant="filledLgRounded"
+                variant="call-to-action"
+                content={hero.buttonContent}
+                link={hero.buttonPath}
+              />
+            </div>
+          </div>
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={500}
+            imageHeight={500}
+            {...hero}
+          />
+        </div>
+      ),
+      variant?.includes("hero-seven") && (
+        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
+          <h1 class="font-light">{hero.title}</h1>
+          <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={500}
+              imageHeight={500}
+              {...hero}
+            />
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={500}
+              imageHeight={500}
+              {...hero}
+            />
+            <div class="w-full flex flex-col gap-3 md:gap-6">
+              <h2 class="font-body">{hero.secondaryTitle}</h2>
+              <p>{hero.content}</p>
+              <Button
+                classVariant="filledLgRounded"
+                variant="call-to-action"
+                content="Call To Action"
+              />
+            </div>
+          </div>
+        </div>
+      ),
+      variant?.includes("hero-eight") && (
+        <div class="m-auto max-w-7xl px-6 h-[800px] w-full flex flex-col lg:flex-row py-20 gap-20 justify-center items-center">
+          <section class="z-10 flex flex-col gap-12 w-full lg:!w-1/2">
+            <slot />
+          </section>
+
+          <svg
+            width="1117"
+            height="1075"
+            viewBox="0 0 1117 1075"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-0 right-0 z-0"
+          >
+            <path
+              opacity="0.4"
+              d="M1 620.038L710.545 1L558.5 454.962H1116L406.455 1074L558.5 620.038H1Z"
+              stroke="url(#paint0_linear_4151_1223)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_4151_1223"
+                x1="200.037"
+                y1="99.3266"
+                x2="444.496"
+                y2="1101.8"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#FFC34C" />
+                <stop offset="1" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <section class="hidden lg:block !w-1/2 h-full">a</section>
+
+          <img
+            class="w-full lg:absolute z-10 right-0 h-full lg:w-[calc(50%-40px)] object-cover"
+            src={hero.imageUrl.src}
+            alt={hero.imageAlt}
+          />
+        </div>
+      ),
+    ]
+  }
+</div>
